@@ -1,0 +1,12 @@
+/*.js
+!.eslintrc.js
+!babel.config.js
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
