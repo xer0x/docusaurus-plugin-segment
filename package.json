@@ -1,6 +1,6 @@
 {
   "name": "docusaurus-plugin-moesif",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Moesif API Analytics plugin for Docusaurus",
   "main": "src/index.js",
   "scripts": {
