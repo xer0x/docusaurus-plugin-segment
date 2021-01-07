@@ -9,7 +9,7 @@ The SDK automatically collects useful context from a user's device including any
 
 > The below Diagram shows how both `docusaurus-plugin-moesif` and a Moesif [server integration](https://www.moesif.com/docs/server-integration/) to track both web and API traffic made by a customer. 
 
-![Diagram of Moesif Moesif and Docusaurus architecture](https://www.moesif.com/docs/images/docs/client-integration/moesif-arch-docusaurus.png)
+![Diagram of Moesif API monitoring and Docusaurus architecture](https://www.moesif.com/docs/images/docs/client-integration/moesif-arch-docusaurus.png)
 
 ## How to install
 
