@@ -45,7 +45,7 @@ module.exports = function (context) {
           {
             tagName: 'script',
             attributes: {
-              src: '//unpkg.com/moesif-browser-js@^1/moesif.min.js',
+              src: '//unpkg.com/moesif-browser-js@v1/moesif.min.js',
             },
           },
           {

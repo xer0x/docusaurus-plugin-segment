@@ -6,7 +6,10 @@ For full documentation and configuration, see [moesif-browser-js docs](https://w
 
 The SDK automatically collects useful context from a user's device including any marketing attribution, device type, and location information and stores in the user and/or company profile in Moesif. You can add additional customer properties such as user email and company domain via the [identifyUser()](https://www.moesif.com/docs/client-integration/browser-js/#identifying-users) and [identifyCompany()](https://www.moesif.com/docs/client-integration/browser-js/#identifying-companies) methods.
 
----
+
+> The below Diagram shows how both `docusaurus-plugin-moesif` and a Moesif [server integration](https://www.moesif.com/docs/server-integration/) to track both web and API traffic made by a customer. 
+
+![Diagram of Moesif Moesif and Docusaurus architecture](https://www.moesif.com/docs/images/docs/client-integration/moesif-arch-docusaurus.png)
 
 ## How to install
 
