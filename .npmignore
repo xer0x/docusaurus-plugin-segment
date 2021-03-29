@@ -1,4 +1,4 @@
 node_modules
 src
 .eslintrc.js
-.abel.config.js
+babel.config.js
