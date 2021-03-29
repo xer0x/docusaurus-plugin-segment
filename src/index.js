@@ -1,21 +1,20 @@
 const path = require('path');
 const snippet = require('@segment/snippet');
 
-module.exports = function (context) {
+module.exports = function (context, fromOptions) {
   const {siteConfig} = context;
   const {themeConfig} = siteConfig;
-  const {segment} = themeConfig || {};
+  const {segment: fromThemeConfig} = themeConfig || {};
 
-  if (!segment) {
-    throw new Error(
-      `You need to specify 'segment' object in 'themeConfig' with 'applicationId' field in it to use docusaurus-plugin-segment`,
-    );
-  }
+  const segment = {
+    ...fromThemeConfig,
+    ...fromOptions
+  };
 
   const {apiKey} = segment;
 
   if (!apiKey) {
-    throw new Error('You specified the `segment` object in `themeConfig` but the `apiKey` field was missing.');
+    throw new Error('Unable to find a Segment `apiKey` in `plugin` options or `themeConfig`.');
   }
 
   const isProd = process.env.NODE_ENV === 'production';
@@ -44,7 +43,7 @@ module.exports = function (context) {
           },
           {
             tagName: 'script',
-            innerHTML: contents,
+            innerHTML: contents + '\n',
           },
         ],
       };

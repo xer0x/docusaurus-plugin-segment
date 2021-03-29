@@ -20,11 +20,22 @@ module.exports = {
   themeConfig: {
     segment: {
       apiKey: 'Your Segment Write API Key',
-      page: false, // disable to send page events via onRouteChange()
       // Add other options here.
     },
   },
 };
+```
+
+```javascript
+module.exports = {
+  plugins: [
+    'docusaurus-plugin-segment',
+    {
+      apiKey: 'Your Segment Write API Key'
+      // Add other options here.
+    }
+  ]
+}
 ```
 
 3. Test it works
@@ -54,3 +65,5 @@ window.analytics.identify("97980cfea0067", {
 ## Configuration Options
 
 For full list of configuration options, [see this page](https://github.com/segmentio/snippet).
+
+The `page` option defaults to false, and the plugin will use a hook to send page tracking events.
