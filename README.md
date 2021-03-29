@@ -1,31 +1,27 @@
-# docusaurus-plugin-moesif
+# docusaurus-plugin-segment
 
-A Docusaurus plugin for [Moesif API Analytics](https://www.moesif.com/) built using `moesif-browser-js`. 
+A Docusaurus plugin for [Segment API Analytics](https://www.segment.com/) based on prior work of [Segment Analytics](https://github.com/Moesif/docusaurus-plugin-segment)
 
-For full documentation and configuration, see [moesif-browser-js docs](https://www.moesif.com/docs/client-integration/browser-js/)
-
-The SDK automatically collects useful context from a user's device including any marketing attribution, device type, and location information and stores in the user and/or company profile in Moesif. You can add additional customer properties such as user email and company domain via the [identifyUser()](https://www.moesif.com/docs/client-integration/browser-js/#identifying-users) and [identifyCompany()](https://www.moesif.com/docs/client-integration/browser-js/#identifying-companies) methods.
+Disclaimer: This is a community plugin. It may not work. Use at your own risk.
 
 
-> The below Diagram shows how both `docusaurus-plugin-moesif` and a Moesif [server integration](https://www.moesif.com/docs/server-integration/) to track both web and API traffic made by a customer. 
-
-![Diagram of Moesif API monitoring and Docusaurus architecture](https://www.moesif.com/docs/images/docs/client-integration/moesif-arch-docusaurus.png)
 
 ## How to install
 
-1. Install `docusaurus-plugin-moesif`
+1. Install `docusaurus-plugin-segment`
 
-  `npm install --save docusaurus-plugin-moesif`
+  `npm install --save docusaurus-plugin-segment`
 
 2. Add plugin to `docusaurus.config.js`
 
 ```javascript
 module.exports = {
-  plugins: ['docusaurus-plugin-moesif'],
+  plugins: ['docusaurus-plugin-segment'],
   themeConfig: {
-    moesif: {
-      applicationId: 'Your Moesif Application Id',
-      // Add other Moesif options here.
+    segment: {
+      apiKey: 'Your Segment Write API Key',
+      page: false, // disable to send page events via onRouteChange()
+      // Add other options here.
     },
   },
 };
@@ -43,23 +39,18 @@ npm run serve
 
 ## How to use
 
-Any of the Moesif browser APIs are accessible via `window.moesif`.
-The plugin tracks page views automatically but we also recommend [identifying the user](https://www.moesif.com/docs/client-integration/browser-js/#identifying-users) like so:
+Any of the Segment browser APIs are accessible via `window.analytics`.
+The plugin tracks page views automatically but we also recommend [identifying the user](https://segment.com/docs/connections/spec/identify/) like so:
 
 ```javascript
-window.moesif.identifyUser("12345", {
-  email: "john@acmeinc.com",
-  firstName: "John",
-  lastName: "Doe",
-  title: "Software Engineer",
-  salesInfo: {
-    stage: "Customer",
-    lifetimeValue: 24000,
-    accountOwner: "mary@contoso.com",
-  },
+window.analytics.identify("97980cfea0067", {
+  name: "Peter Gibbons",
+  email: "peter@example.com",
+  plan: "premium",
+  logins: 5
 });
 ```
 
 ## Configuration Options
 
-For full list of configuration options, [see this page](https://www.moesif.com/docs/client-integration/browser-js/#configuration-options).
+For full list of configuration options, [see this page](https://github.com/segmentio/snippet).

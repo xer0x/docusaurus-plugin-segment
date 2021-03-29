@@ -1,32 +1,32 @@
 const path = require('path');
+const snippet = require('@segment/snippet');
 
 module.exports = function (context) {
   const {siteConfig} = context;
   const {themeConfig} = siteConfig;
-  const {moesif} = themeConfig || {};
+  const {segment} = themeConfig || {};
 
-  if (!moesif) {
+  if (!segment) {
     throw new Error(
-      `You need to specify 'moesif' object in 'themeConfig' with 'applicationId' field in it to use docusaurus-plugin-moesif`,
+      `You need to specify 'segment' object in 'themeConfig' with 'applicationId' field in it to use docusaurus-plugin-segment`,
     );
   }
 
-  const {applicationId} = moesif;
+  const {apiKey} = segment;
 
-  if (!applicationId) {
-    throw new Error(
-      'You specified the `moesif` object in `themeConfig` but the `applicationId` field was missing. ' +
-        'Please ensure this is not a mistake.',
-    );
+  if (!apiKey) {
+    throw new Error('You specified the `segment` object in `themeConfig` but the `apiKey` field was missing.');
   }
 
   const isProd = process.env.NODE_ENV === 'production';
 
+  const contents = snippet.min(segment);
+
   return {
-    name: 'docusaurus-plugin-moesif',
+    name: 'docusaurus-plugin-segment',
 
     getClientModules() {
-      return isProd ? [path.resolve(__dirname, './moesif')] : [];
+      return isProd ? [path.resolve(__dirname, './segment')] : [];
     },
 
     injectHtmlTags() {
@@ -39,20 +39,12 @@ module.exports = function (context) {
             tagName: 'link',
             attributes: {
               rel: 'preconnect',
-              href: 'https://unpkg.com',
+              href: 'https://cdn.segment.io',
             },
           },
           {
             tagName: 'script',
-            attributes: {
-              src: '//unpkg.com/moesif-browser-js@v1/moesif.min.js',
-            },
-          },
-          {
-            tagName: 'script',
-            innerHTML: `
-            window.moesif = moesif.init(${JSON.stringify(moesif)});
-            `,
+            innerHTML: contents,
           },
         ],
       };

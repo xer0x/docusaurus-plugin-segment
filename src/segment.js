@@ -7,7 +7,7 @@ export default (function () {
 
   return {
     onRouteUpdate({ location }) {
-      window.moesif.track('Page View', { pathname: location.pathname, title: document.title, host: document.host }); 
+      window.analytics.track('Page View', { pathname: location.pathname, title: document.title, host: document.host }); 
     },
   };
 })();
