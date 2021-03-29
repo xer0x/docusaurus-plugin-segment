@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/xer0x/docusaurus-plugin-segment/issues"
   },
-  "homepage": "https://github.com/moesif/docusaurus-plugin-segment#readme",
+  "homepage": "https://github.com/xer0x/docusaurus-plugin-segment#readme",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
