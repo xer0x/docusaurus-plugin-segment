@@ -14,6 +14,10 @@ Disclaimer: This is a community plugin. It may not work. Use at your own risk.
 
 2. Add plugin to `docusaurus.config.js`
 
+
+Method a: use themeConfig with Docusaurus v1
+
+
 ```javascript
 module.exports = {
   plugins: ['docusaurus-plugin-segment'],
@@ -25,6 +29,8 @@ module.exports = {
   },
 };
 ```
+
+Method b: use plugin options with Docusaurus v2
 
 ```javascript
 module.exports = {
