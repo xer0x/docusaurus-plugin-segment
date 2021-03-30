@@ -7,6 +7,7 @@ export default (function () {
 
   return {
     onRouteUpdate({ location }) {
+      if (!window.analytics) return;
       window.analytics.track('Page View', { pathname: location.pathname, title: document.title, host: document.host }); 
     },
   };
