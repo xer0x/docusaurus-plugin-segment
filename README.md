@@ -1,6 +1,6 @@
 # docusaurus-plugin-segment
 
-A Docusaurus plugin for [Segment API Analytics](https://www.segment.com/) based on prior work of [Segment Analytics](https://github.com/Moesif/docusaurus-plugin-segment)
+A Docusaurus plugin for [Segment API Analytics](https://www.segment.com/) based on prior work by [Moesif](https://github.com/Moesif/docusaurus-plugin-segment)
 
 Disclaimer: This is a community plugin. It may not work. Use at your own risk.
 
