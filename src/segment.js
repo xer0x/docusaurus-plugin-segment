@@ -6,9 +6,9 @@ export default (function () {
   }
 
   return {
-    onRouteUpdate({ location }) {
+    onRouteUpdate() {
       if (!window.analytics) return;
-      window.analytics.page(); 
+      setTimeout(() => window.analytics.page(), 0);
     },
   };
 })();
