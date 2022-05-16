@@ -21,6 +21,8 @@ module.exports = function (context, fromOptions) {
 
   const contents = snippet.min(segment);
 
+  const cdnHost = segment.useHostForBundles === true && segment.host ? segment.host : "cdn.segment.io";
+
   return {
     name: 'docusaurus-plugin-segment',
 
@@ -38,7 +40,7 @@ module.exports = function (context, fromOptions) {
             tagName: 'link',
             attributes: {
               rel: 'preconnect',
-              href: 'https://cdn.segment.io',
+              href: `https://${cdnHost}`,
             },
           },
           {
